@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"reflect"
+	//"reflect"
 )
 
 func main() {
@@ -18,13 +18,22 @@ func compare(arr1, arr2 []int) bool {
 		return false
 	}
 
-	sort1 := make([]int, len(arr1))
-	copy(sort1, arr1)
-	Sorting(sort1)
+	aMap := make(map[int]int)
+	bMap := make(map[int]int)
 
-	sort2 := make([]int, len(arr2))
-	copy(sort2, arr2)
-	Sorting(sort2)
+	for i := 0; i < len(arr1); i++ {
+		aMap[arr1[i]]++
+	}
 
-	return reflect.DeepEqual(sort1, sort2)
+	for i := 0; i < len(arr2); i++ {
+		bMap[arr2[i]]++
+	}
+
+	for aVal, aKey := range aMap {
+		if bMap[aVal] != aKey {
+			return false
+		}
+	}
+
+	return true
 }
