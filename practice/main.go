@@ -3,24 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	nums := make(chan int)
-	squares := make(chan int)
+	fmt.Println("main() started")
 
-	go func() {
-		for num := range nums {
-			squares <- num * num
-		}
-		close(squares)
-	}()
+	c := make(chan string)
+	c <- "John"
 
-	go func() {
-		for _, num := range []int{1, 2, 3, 4, 5} {
-			nums <- num
-		}
-		close(nums)
-	}()
-
-	for num := range squares {
-		fmt.Println(num)
-	}
+	fmt.Println("main() stopped")
 }
