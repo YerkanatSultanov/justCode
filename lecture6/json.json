@@ -1,0 +1,18 @@
+[
+  {
+    "title": "First Book",
+    "author": "Sultanov Yerkanat",
+    "genre": {
+      "genre_name": "Fantastic",
+      "subgenre": "Science fiction"
+    }
+  },
+  {
+    "title": "Second Book",
+    "author": "Nursultan",
+    "genre": {
+      "genre_name": "Novel",
+      "subgenre": "Drama"
+    }
+  }
+]
